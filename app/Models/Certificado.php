@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Certificado extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    public function solicitud()
+    {
+        return $this->belongsTo(Solicitud::class);
+    }
 }

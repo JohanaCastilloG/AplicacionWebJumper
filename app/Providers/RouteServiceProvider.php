@@ -52,6 +52,15 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/administrador.php'));
         });
+
+        Route::resourceVerbs([
+            'create' => 'crear',
+            'edit' => 'editar',
+            'show' => 'ver',
+            'update' => 'actualizar',
+            'store' => 'alamacenar',
+            'destroy' => 'eliminar',
+        ]);
     }
 
     /**

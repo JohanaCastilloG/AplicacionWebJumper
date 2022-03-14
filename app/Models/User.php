@@ -46,6 +46,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // Tiene muchas Solicitudes
     public function solicitudes()
     {
         return $this->hasMany(Solicitud::class);

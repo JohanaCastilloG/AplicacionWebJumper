@@ -15,10 +15,13 @@ class CreateCertificadosTable extends Migration
     {
         Schema::create('certificados', function (Blueprint $table) {
             $table->id();
-            $table->string('matricula');
-            $table->string('ruta');
-            $table->unsignedBigInteger('solicitud_id');
-            $table->foreign('solicitud_id')->references('id')->on('solicituds');
+
+            $table->string('name')->nullable();
+            $table->string('file_path')->nullable();
+
+            $table->unsignedBigInteger('solicitud_id')->nullable();
+            $table->foreign('solicitud_id')->references('id')->on('solicituds')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

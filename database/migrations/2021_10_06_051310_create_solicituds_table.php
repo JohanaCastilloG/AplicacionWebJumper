@@ -20,8 +20,9 @@ class CreateSolicitudsTable extends Migration
             $table->string('matricula');
             $table->string('ubicacion_predio');
             $table->enum('estado', [Solicitud::Aprovado, Solicitud::Pendiente, Solicitud::Pago, Solicitud::Enviado, Solicitud::Anulado])->default(Solicitud::Pendiente);
+            $table->float('valor')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

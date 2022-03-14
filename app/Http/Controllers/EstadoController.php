@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Certificado;
 use App\Models\Solicitud;
 use Illuminate\Http\Request;
 

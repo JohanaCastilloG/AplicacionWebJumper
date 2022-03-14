@@ -3,7 +3,7 @@
 @section('title', 'Panel')
 
 @section('content_header')
-<h1>Editar Solicitud</h1>
+<h3>Editar Solicitud</h3>
 @stop
 
 @section('content')
@@ -62,7 +62,14 @@
             {!! Form::model ($solicitud, ['route' => ['admin.solicitudes.update', $solicitud],
             'method' => 'PUT']) !!}
 
-            <strong><i class="fas fa-mobile-alt mr-1"></i> Cambiar Estado</strong>
+            <div>
+                {{ Form::label('valor', 'Modificar Valor a Solicitud', ['class'=> 'text-muted']) }} <br>
+                {{ Form::number('valor', null, ['class'=> 'form-control', 'placeholder'=>'$', 'required']) }}
+            </div>
+
+            <hr>
+
+            <p class="mt-4"><i class="fas fa-check text-muted mr-1"></i> Cambiar Estado</p>
 
             <div class="d-flex justify-content-between mt-3">
                 <div>
@@ -96,26 +103,44 @@
 
             <hr>
 
-            <div class="alert alert-success" role="alert">
-                <h5 class="alert-heading">@switch($solicitud->estado)
+            @switch($solicitud->estado)
                     @case(1)
-                    Aprobado
+                    <div class="alert alert-success" role="alert">
+                        <h5 class="alert-heading">
+                            Aprobado
+                        </h5>
+                    </div>
                     @break
                     @case(2)
-                    Pendiente
+                    <div class="alert alert-warning" role="alert">
+                        <h5 class="alert-heading">
+                            Pendiente
+                        </h5>
+                    </div>
                     @break
                     @case(3)
-                    Pago
+                    <div class="alert alert-info" role="alert">
+                        <h5 class="alert-heading">
+                            Pago
+                        </h5>
+                    </div>
                     @break
                     @case(4)
-                    Enviado
+                    <div class="alert alert-info" role="alert">
+                        <h5 class="alert-heading">
+                            Enviado
+                        </h5>
+                    </div>
                     @break
                     @case(5)
-                    Anulado
+                    <div class="alert alert-secondary" role="alert">
+                        <h5 class="alert-heading">
+                            Anulado
+                        </h5>
+                    </div>
                     @break
-                    @endswitch
-                </h5>
-            </div>
+
+            @endswitch
 
 
         </div>

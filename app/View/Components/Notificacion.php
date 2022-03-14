@@ -29,8 +29,12 @@ class Notificacion extends Component
 
         $solicitudes = $solicitudes->get();
 
-        $count = $solicitudes->count();
+        $certificados = Solicitud::query()->where('user_id', auth()->user()->id)->has('certificados');
 
-        return view('components.notificacion', compact('solicitudes', 'count'));
+        $certificados = $certificados->get();
+
+        $count = $solicitudes->count() + $certificados->count();
+
+        return view('components.notificacion', compact('solicitudes', 'count', 'certificados'));
     }
 }

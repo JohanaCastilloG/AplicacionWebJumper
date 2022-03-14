@@ -16,9 +16,20 @@ class Solicitud extends Model
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
+    // Pertenece a un usuario
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function certificados()
+    {
+        return $this->hasMany(Certificado::class);
+    }
+
+    public function pago()
+    {
+        return $this->hasOne(Pago::class);
     }
 
     public function getRouteKeyName()

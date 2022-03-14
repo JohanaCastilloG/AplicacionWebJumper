@@ -15,10 +15,12 @@ class CreatePagosTable extends Migration
     {
         Schema::create('pagos', function (Blueprint $table) {
             $table->id();
+            $table->string('referencia');
             $table->float('total');
             $table->json('contenido');
+            $table->json('respuesta')->nullable();
             $table->unsignedBigInteger('solicitud_id');
-            $table->foreign('solicitud_id')->references('id')->on('solicituds');
+            $table->foreign('solicitud_id')->references('id')->on('solicituds')->onDelete('cascade');
             $table->timestamps();
         });
     }

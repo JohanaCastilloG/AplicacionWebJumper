@@ -85,19 +85,19 @@
 
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('solicitud.index')}}">Solicitud</a>
+                            <a class="nav-link" href="{{route('solicitud.index')}}">Mis Solicitudes</a>
                         </li> 
                         @endauth
                         
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="">Pagos</a>
+                            <a class="nav-link" href="{{route('mispagos.index')}}">Mis Pagos</a>
                         </li> 
                         @endauth
                         
                         @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="">Mis certificados</a>
+                            <a class="nav-link" href="{{route('certificados.index')}}">Mis certificados</a>
                         </li>
                         @endauth
                         
@@ -138,6 +138,12 @@
                             @role('Administrador')
                                 <a class="dropdown-item" href="{{ route('admin.inicio') }}">
                                         {{ __('Administrador') }}
+                                </a>
+                            @endrole
+
+                            @role('Empleado')
+                                <a class="dropdown-item" href="{{ route('admin.inicio') }}">
+                                        {{ __('Gestion Solicitudes') }}
                                 </a>
                             @endrole
                             

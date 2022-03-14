@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container d-flex justify-content-center">
-    <div class="card text-center col-md-8">
+    <div class="card text-center col-md-6">
         <div class="card-header">
             Solicitud: SC{{$solicitud->id}}
         </div>
@@ -63,6 +63,16 @@
                 </h4>
             </div>
 
+            @if ($solicitud->estado == 1)
+
+            <hr>
+            <strong><i class="fas fa-file-signature mr-1"></i> Valor para Obtener Certificados</strong>
+
+            
+                <h5 class="tag tag-danger mt-2">$ {{number_format($solicitud->valor, 0, ".", ",")}} COP</h5>
+
+            <a href="{{route('pago.formpay', $solicitud)}}" class="btn btn-success d-flex justify-content-between align-items-center mt-3">Ir a Pagar<i class="fas fa-money-check-alt"></i></a>
+            @endif
 
         </div>
         <div class="card-footer text-muted">
@@ -70,6 +80,9 @@
         <a href="{{route('solicitudes.index')}}" class="btn btn-primary float-right">Volver a mis solicitudes</a>
         </div>
     </div>
-</div>
+
+
+
+
 
 @endsection

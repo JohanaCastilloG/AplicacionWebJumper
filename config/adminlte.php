@@ -240,34 +240,46 @@ return [
         // Sidebar items:
        
         [
-            'text' => 'Solicitudes',
-            'url'  => 'administrador/solicitud',
-            'icon' => 'fas fa-pen-nib',
+            'text' => 'Solicitudes Pendientes',
+            'url'  => 'administrador/pendientes/solicitud',
+            'icon' => 'far fa-list-alt',
+            'can' => ['Empleado', 'Administrador']
         ],
 
         [
-            'text' => 'Certificados',
-            'url'  => 'admin/settings',
+            'text' => 'Todas las Solicitudes',
+            'url'  => 'administrador/todas/solicitud',
+            'icon' => 'fas fa-pen-nib',
+            'can' => ['Empleado', 'Administrador']
+        ],
+
+        [
+            'text' => 'Certificados',          
+            'url'  => 'administrador/certificados',
             'icon' => 'fas fa-stamp',
+            'can' => ['Empleado', 'Administrador']
         ],
 
         [
             'text' => 'Usuarios',
             'url'  => 'administrador/usuarios',
             'icon' => 'fas fa-fw fa-user',
+            'can' => 'Administrador'
         ],
 
         [
             'text' => 'Roles',
             'url'  => 'administrador/roles',
             'icon' => 'fas fa-fw fa-users',
+            'can' => 'Administrador'
         ],
 
         [
             'text'        => 'Ventas',
-            'url'         => 'admin/pages',
+            'url'         => 'administrador/ventas',
             'icon'        => 'fas fa-file-invoice-dollar',
             'label_color' => 'success',
+            'can' => ['Empleado', 'Administrador']
         ],
         
     ],
